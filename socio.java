@@ -5,7 +5,7 @@ class socio implements Serializable
 	private String apellido;
 	private String apellido2;
 	private String nif;
-	private GFregorianCalendar nacimiento;
+	private GregorianCalendar nacimiento;
 	//constructor
 	public socio (String nombre, String apellido, String apellido2, String nif, String nacimiento)
 	{
