@@ -1,4 +1,4 @@
-import pkagesocios;
+import pkagesocios.*;
 import//
 class socios
 {
