@@ -1,4 +1,5 @@
 import java.util.GregorianCalendar;
+package pkagesocio;
 class socio implements Serializable
 {
 	private String nombre;

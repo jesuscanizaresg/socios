@@ -1,4 +1,4 @@
-package//
+import pkagesocios;
 import//
 class socios
 {
