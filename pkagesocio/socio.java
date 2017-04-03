@@ -8,7 +8,7 @@ class socio implements Serializable
 	private String apellido2;
 	private String nif;
 	private GregorianCalendar nacimiento;
-	//constructor //el string ha de tener este formato al pasarlo al constructor: ("dd, mm,yyyy")
+	//constructor //el GregorianCalendar ha de tener este formato al pasarlo al constructor: ("dd, mm,yyyy")
 	public socio (String nombre, String apellido, String apellido2, String nif, GregorianCalendar nacimiento)
 	{
 		this.nombre=nombre;
