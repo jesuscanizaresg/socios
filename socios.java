@@ -1,5 +1,6 @@
 import pkagesocios.*;
-import//
+import java.io.*;
+
 class socios
 {
 
