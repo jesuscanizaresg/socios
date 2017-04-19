@@ -1,6 +1,6 @@
 import pkagesocios.*;
 import//
-class socios//solo main. Sólo se crean objetos y se llaman a los métodos
+class socios//solo main y métodos
 {
 	public static void main (String[]args)
 	{
