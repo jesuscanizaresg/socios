@@ -1,5 +1,6 @@
-import java.util.GregorianCalendar;
 package pkagesocio;
+import java.util.GregorianCalendar;
+import java.io.*;
 class socio implements Serializable
 {
 	private String nombre;
@@ -7,8 +8,8 @@ class socio implements Serializable
 	private String apellido2;
 	private String nif;
 	private GregorianCalendar nacimiento;
-	//constructor //el string ha de tener este formato al pasarlo al constructor: ("dd, mm,yyyy")
-	public socio (String nombre, String apellido, String apellido2, String nif, String nacimiento)
+	//constructor //el GregorianCalendar ha de tener este formato al pasarlo al constructor: ("dd, mm,yyyy")
+	public socio (String nombre, String apellido, String apellido2, String nif, GregorianCalendar nacimiento)
 	{
 		this.nombre=nombre;
 		this.apellido=apellido;
