@@ -2,14 +2,16 @@ import pkagesocios.*;
 import java.io.*;
 class socios//solo main y métodos
 {
-	public static void main (String[]args)
-	{
 	public static File f; //Necesitamos un File f static para trabajar con los métodos, lo dejo aquí. Que el editor de la clase socios
 	//lo tenga en cuenta.
+	
+	public static void main (String[]args)
+	{
+	
 
 
 
-
+	}
 
 
 
@@ -54,6 +56,6 @@ class socios//solo main y métodos
 //___________________________________fin método escribir a fichero_____________________
 
 
-	}
+	
 
 }
