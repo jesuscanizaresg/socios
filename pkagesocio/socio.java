@@ -4,25 +4,25 @@ import java.io.*;
 class socio implements Serializable
 {
 	private String nombre;
-	private String apellido;
+	private String apellido1;
 	private String apellido2;
-	private String nif;
+	private String dni;
 	private GregorianCalendar nacimiento;
 	//constructor //el GregorianCalendar ha de tener este formato al pasarlo al constructor: ("dd, mm,yyyy")
-	public socio (String nombre, String apellido, String apellido2, String nif, GregorianCalendar nacimiento)
+	public socio (String nombre, String apellido, String apellido2, String dni, GregorianCalendar nacimiento)
 	{
 		this.nombre=nombre;
-		this.apellido=apellido;
+		this.apellido1=apellido1;
 		this.apellido2=apellido2;
-		this.nif=nif;
+		this.dni=dni;
 		this.nacimiento=nacimiento;
 	}
 	public void mostrar()
 	{
 		System.out.println("Nombre: "+nombre);
-		System.out.println("Primer apellido "+apellido);
+		System.out.println("Primer apellido "+apellido1);
 		System.out.println("Segundo apellido "+apellido2);
-		System.out.println("NIF/DNI: "+nif);
+		System.out.println("NIF/DNI: "+dni);
 		System.out.println("Fecha de nacimiento: "+nacimiento.toString());
 	}
 }
