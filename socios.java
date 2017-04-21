@@ -40,7 +40,7 @@ class socios//solo main y métodos
 				System.out.println("Introduzca día de nacimiento");
 				int dia = Integer.parseInt(br.nextLine());
 				System.out.println("Introduzca mes de nacimiento, formato numérico de dos cifras");
-				int mes = Integer.parseInt(br.nextLine());
+				int mes = Integer.parseInt(br.nextLine()-1);
 				System.out.println("Introduzca año de nacimiento, formato numérico de cuatro cifras");
 				int ano = Integer.parseInt(br.nextLine());
 				GregorianCalendar gc = new GregorianCalendar(dia,mes,ano);
