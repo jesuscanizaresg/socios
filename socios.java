@@ -56,6 +56,36 @@ class socios//solo main y métodos
 //___________________________________fin método escribir a fichero_____________________
 
 
-	
+//METODO PARA MOSTRAR RAUL NAJERA
+	pubilc void readSocios() throws IOException
+	{
+		FileInputStream fis=new FileInputStream("socios.dat");
+		ObjectInputStream ois=new ObjectInputStream(fis);
+		try
+		{
+			while (true)
+			{
+				socio s=(socio)ois.readObject();
+				s.mostrar();
+			}
+		}
+		catch (EOFException e)
+		{
+			System.out.println("Fin de fichero");
+		}
+		catch (ClassNotFoundException e)
+		{
+			System.out.println(e.getMessage());
+		}
+		finally
+		{
+			if (ois != null)
+			{
+				ois.close();
+				fis.close();
+				System.exit(0);
+			}
+		}
+	} //fin metodo leer fichero
 
 }
