@@ -38,26 +38,26 @@ public class socios//solo main y métodos//javier Moreno
 			{
 				System.out.println("Introduzca valores para realizar alta socio, linea vacia para terminar");
 				System.out.println("Nombre socio");
-				String nombre = br.nextLine();
+				String nombre = br.readLine();
 				System.out.println("Apellido1");
-				String apellido1 = br.nextLine();
+				String apellido1 = br.readLine();
 				System.out.println("Apellido2");
-				String apellido2 = br.nextLine();
+				String apellido2 = br.readLine();
 				System.out.println("Dni socio");
-				String dni = br.nextLine();
+				String dni = br.readLine();
 				System.out.println("Introduzca día de nacimiento");
-				int dia = Integer.parseInt(br.nextLine());
+				int dia = Integer.parseInt(br.readLine());
 				System.out.println("Introduzca mes de nacimiento, formato numérico de dos cifras");
-				int mes = Integer.parseInt(br.nextLine()-1);
+				int mes = Integer.parseInt(br.readLine()-1);
 				System.out.println("Introduzca año de nacimiento, formato numérico de cuatro cifras");
-				int ano = Integer.parseInt(br.nextLine());
+				int ano = Integer.parseInt(br.readLine());
 				GregorianCalendar gc = new GregorianCalendar(dia,mes,ano);
 				socio s = new socio ( nombre,apellido1,apellido2,dni,gc);
 					oos.writeObject(s);			
 
 				System.out.println("Introducir nuevo socio---> Pulse 1");
 				System.out.println("Terminar la edición de socios --> Pulse 2");
-				introMenu=Integer.parseInt(br.nextLine());
+				introMenu=Integer.parseInt(br.readLine());
 			}
 		}
 	}//___________________________________fin método escribir a fichero_____________________
@@ -102,7 +102,7 @@ public class socios//solo main y métodos//javier Moreno
 		System.out.println("1. Introducir un socio nuevo");
 		System.out.println("2. Consultar los socios");
 		System.out.println ("0. Para salir");
-		menu=Integer.parseInt(br.nextLine());
+		menu=Integer.parseInt(br.readLine());
 		return menu;
 		
 

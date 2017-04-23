@@ -1,7 +1,7 @@
 package pkagesocio;
 import java.util.GregorianCalendar;
 import java.io.*;
-public class socio implements Serializable
+public class socio implements Serializable //javier Moreno
 {
 	private String nombre;
 	private String apellido1;
