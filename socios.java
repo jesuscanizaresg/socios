@@ -1,32 +1,41 @@
-import pkagesocios.*;
+import pkagesocio.*;
 import java.io.*;
-class socios//solo main y métodos
+import java.util.GregorianCalendar;
+public class socios//solo main y métodos
 {
 	public static File f; //Necesitamos un File f static para trabajar con los métodos, lo dejo aquí. Que el editor de la clase socios
 	//lo tenga en cuenta.
 	
 	public static void main (String[]args)
 	{
-	
-
-
-
+		int x=3;
+		x=menu();
+		while (x!=0)
+		{
+			switch (x)
+			{
+				case 1: writeSocios();
+						break;
+				case 2: readSocios();
+						break;
+				default:System.out.println("Introduce un valor válido");
+						break;
+			}
+			x=menu();		
+		}	
 	}
-
-
-
 	//METODO PARA ESCRIBIR SOCIOS NUEVOS A FICHERO JESUS CAÑIZARES_______________________________________________________
-	public void writeSocios() throws IOException
+	static void writeSocios() throws IOException
 	{
 		if (f.exists())
 		{
-			f = new File ("socios.dat");
+			f = new File ("socios.txt");
 			FileOutputStream fos = new FileOutputStream (f,true);
 			ObjectOutputStream oos = new ObjectOutputStream (fos);
 			BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
 			int introMenu = 1;
 			
-			while (intro == 1)
+			while (introMenu == 1)
 			{
 				System.out.println("Introduzca valores para realizar alta socio, linea vacia para terminar");
 				System.out.println("Nombre socio");
@@ -52,21 +61,19 @@ class socios//solo main y métodos
 				introMenu=Integer.parseInt(br.nextLine());
 			}
 		}
-	}
-//___________________________________fin método escribir a fichero_____________________
+	}//___________________________________fin método escribir a fichero_____________________
 
-
-//METODO PARA MOSTRAR RAUL NAJERA
-	pubilc void readSocios() throws IOException
+	//METODO PARA MOSTRAR RAUL NAJERA
+	static void readSocios() throws IOException
 	{
 		FileInputStream fis=new FileInputStream("socios.dat");
 		ObjectInputStream ois=new ObjectInputStream(fis);
 		try
 		{
-			while (true)
+		while (true)
 			{
-				socio s=(socio)ois.readObject();
-				s.mostrar();
+			socio s=(socio)ois.readObject();
+			s.mostrar();
 			}
 		}
 		catch (EOFException e)
@@ -87,5 +94,18 @@ class socios//solo main y métodos
 			}
 		}
 	} //fin metodo leer fichero
+	static int menu()
+	{	
+		int menu = 0;
+		BufferedReader br1 = new BufferedReader (new InputStreamReader(System.in));
+		System.out.println("------------Bienvenido a tu registro de socios------------");
+		System.out.println("¿Qué quieres hacer?");
+		System.out.println("1. Introducir un socio nuevo");
+		System.out.println("2. Consultar los socios");
+		System.out.println ("0. Para salir");
+		menu=Integer.parseInt(br.nextLine());
+		return menu;
+		
 
+	}
 }
