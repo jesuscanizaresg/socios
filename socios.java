@@ -1,11 +1,10 @@
 import pkagesocio.*;
 import java.io.*;
 import java.util.GregorianCalendar;
-public class socios//solo main y métodos
+public class socios//solo main y métodos//javier Moreno
 {
-	public static File f; //Necesitamos un File f static para trabajar con los métodos, lo dejo aquí. Que el editor de la clase socios
-	//lo tenga en cuenta.
-	
+	public static File f; //Necesitamos un File f static para trabajar con los métodos
+
 	public static void main (String[]args)
 	{
 		int x=3;
@@ -94,8 +93,8 @@ public class socios//solo main y métodos
 			}
 		}
 	} //fin metodo leer fichero
-	static int menu()
-	{	
+	static int menu() 
+	{	//javier Moreno
 		int menu = 0;
 		BufferedReader br1 = new BufferedReader (new InputStreamReader(System.in));
 		System.out.println("------------Bienvenido a tu registro de socios------------");
