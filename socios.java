@@ -3,7 +3,9 @@ import java.io.*;
 import java.util.GregorianCalendar;
 public class socios
 {					
-	public static File f; //Necesitamos un File f static para trabajar con los métodos
+	static File f = new File("socios.dat"); //Necesitamos un File f static para trabajar con los métodos
+	static FileOutputStream fos;
+	static ObjectOutputStream oos;
 	public static BufferedReader br = new BufferedReader (new InputStreamReader(System.in)); //BufferedReader para todo el programa
 	public static void main (String[]args) 
 	{										//_______________________________Main: javier Moreno_______________________________
@@ -13,12 +15,12 @@ public class socios
 		{
 			switch (x)
 			{
-				case 1: try
+				case 1: 
 						{
 							writeSocios();
 							break;
 						}
-						catch(IOException e){e.printStackTrace();}
+						//catch(IOException e){e.printStackTrace();}
 						
 				case 2: try
 						{
@@ -35,19 +37,30 @@ public class socios
 	}//_______________________________fin main_______________________________
 
 	//METODO PARA ESCRIBIR SOCIOS NUEVOS A FICHERO JESUS CAÑIZARES_______________________________________________________
-	static void writeSocios() throws IOException
+	static void writeSocios() 
 	{
-		if (f.exists())
-		{
-			f = new File ("socios.txt");
-			FileOutputStream fos = new FileOutputStream (f,true);
-			ObjectOutputStream oos = new ObjectOutputStream (fos);
 			int introMenu = 1;
+
+			try
+			{
+				fos = new FileOutputStream (f,true);
+				oos = new ObjectOutputStream (fos);
+			}
+			catch(FileNotFoundException fnf)
+			{
+			System.err.println("Archivo no encontrado");
+			}
+			catch(IOException e)
+			{
+			e.printStackTrace();
+			}
 			
 			while (introMenu == 1)
 			{
 				System.out.println("Introduzca valores para realizar alta socio, linea vacia para terminar");
 				System.out.println("Nombre socio");
+				try
+				{
 				String nombre = br.readLine();
 				System.out.println("Apellido1");
 				String apellido1 = br.readLine();
@@ -58,19 +71,38 @@ public class socios
 				System.out.println("Introduzca día de nacimiento");
 				int dia = Integer.parseInt(br.readLine());
 				System.out.println("Introduzca mes de nacimiento, formato numérico de dos cifras");
-				int mes = Integer.parseInt(br.readLine());
-				mes=mes-1;
+				int mes = Integer.parseInt(br.readLine())-1;
+				//mes=mes-1;
 				System.out.println("Introduzca año de nacimiento, formato numérico de cuatro cifras");
 				int ano = Integer.parseInt(br.readLine());
-				GregorianCalendar gc = new GregorianCalendar(dia,mes,ano);
-				socio s = new socio ( nombre,apellido1,apellido2,dni,gc);
-					oos.writeObject(s);			
+				GregorianCalendar gc = new GregorianCalendar(ano,mes,dia);
+				socio s = new socio (nombre,apellido1,apellido2,dni,gc);
+					oos.writeObject(s);		
+					
+				
 
 				System.out.println("Introducir nuevo socio---> Pulse 1");
 				System.out.println("Terminar la edición de socios --> Pulse 2");
 				introMenu=Integer.parseInt(br.readLine());
+				}
+				catch(IOException e)
+				{
+					e.printStackTrace();
+				}	
 			}
-		}
+			
+			if (oos!=null)
+			{	
+				try
+					{
+					oos.close();
+					fos.close();
+					}
+				catch (IOException e1)
+				{
+						e1.printStackTrace();
+				}
+			}
 	}//___________________________________fin método escribir a fichero_____________________
 
 	//_______________________________METODO PARA MOSTRAR RAUL NAJERA_______________________________
