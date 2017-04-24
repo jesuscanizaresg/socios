@@ -9,7 +9,7 @@ public class socio implements Serializable //javier Moreno
 	private String dni;
 	private GregorianCalendar nacimiento;
 	//constructor //el GregorianCalendar ha de tener este formato al pasarlo al constructor: ("dd, mm,yyyy")
-	public socio (String nombre, String apellido, String apellido2, String dni, GregorianCalendar nacimiento)
+	public socio (String nombre, String apellido1, String apellido2, String dni, GregorianCalendar nacimiento)
 	{
 		this.nombre=nombre;
 		this.apellido1=apellido1;
