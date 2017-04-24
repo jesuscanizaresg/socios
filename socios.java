@@ -1,28 +1,39 @@
 import pkagesocio.*;
 import java.io.*;
 import java.util.GregorianCalendar;
-public class socios//solo main y métodos//javier Moreno
-{
+public class socios
+{					
 	public static File f; //Necesitamos un File f static para trabajar con los métodos
-
-	public static void main (String[]args)
-	{
+	public static BufferedReader br = new BufferedReader (new InputStreamReader(System.in)); //BufferedReader para todo el programa
+	public static void main (String[]args) 
+	{										//_______________________________Main: javier Moreno_______________________________
 		int x=3;
 		x=menu();
 		while (x!=0)
 		{
 			switch (x)
 			{
-				case 1: writeSocios();
-						break;
-				case 2: readSocios();
-						break;
+				case 1: try
+						{
+							writeSocios();
+							break;
+						}
+						catch(IOException e){e.printStackTrace();}
+						
+				case 2: try
+						{
+							readSocios();
+							break;	
+						}
+						catch(IOException e){e.printStackTrace();}
+
 				default:System.out.println("Introduce un valor válido");
 						break;
 			}
 			x=menu();		
 		}	
-	}
+	}//_______________________________fin main_______________________________
+
 	//METODO PARA ESCRIBIR SOCIOS NUEVOS A FICHERO JESUS CAÑIZARES_______________________________________________________
 	static void writeSocios() throws IOException
 	{
@@ -31,7 +42,6 @@ public class socios//solo main y métodos//javier Moreno
 			f = new File ("socios.txt");
 			FileOutputStream fos = new FileOutputStream (f,true);
 			ObjectOutputStream oos = new ObjectOutputStream (fos);
-			BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
 			int introMenu = 1;
 			
 			while (introMenu == 1)
@@ -48,7 +58,8 @@ public class socios//solo main y métodos//javier Moreno
 				System.out.println("Introduzca día de nacimiento");
 				int dia = Integer.parseInt(br.readLine());
 				System.out.println("Introduzca mes de nacimiento, formato numérico de dos cifras");
-				int mes = Integer.parseInt(br.readLine()-1);
+				int mes = Integer.parseInt(br.readLine());
+				mes=mes-1;
 				System.out.println("Introduzca año de nacimiento, formato numérico de cuatro cifras");
 				int ano = Integer.parseInt(br.readLine());
 				GregorianCalendar gc = new GregorianCalendar(dia,mes,ano);
@@ -62,7 +73,7 @@ public class socios//solo main y métodos//javier Moreno
 		}
 	}//___________________________________fin método escribir a fichero_____________________
 
-	//METODO PARA MOSTRAR RAUL NAJERA
+	//_______________________________METODO PARA MOSTRAR RAUL NAJERA_______________________________
 	static void readSocios() throws IOException
 	{
 		FileInputStream fis=new FileInputStream("socios.dat");
@@ -94,17 +105,18 @@ public class socios//solo main y métodos//javier Moreno
 		}
 	} //fin metodo leer fichero
 	static int menu() 
-	{	//javier Moreno
+	{	//Menu: _______________________________javier Moreno_______________________________
 		int menu = 0;
-		BufferedReader br1 = new BufferedReader (new InputStreamReader(System.in));
 		System.out.println("------------Bienvenido a tu registro de socios------------");
 		System.out.println("¿Qué quieres hacer?");
 		System.out.println("1. Introducir un socio nuevo");
 		System.out.println("2. Consultar los socios");
 		System.out.println ("0. Para salir");
-		menu=Integer.parseInt(br.readLine());
+		try
+		{
+			menu=Integer.parseInt(br.readLine());	
+		}
+		catch(IOException e){e.printStackTrace();}
 		return menu;
-		
-
 	}
 }
